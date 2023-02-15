@@ -6,10 +6,11 @@
 }
 
 
-header{
+header div{
     width: 100%;
     height: 15vh;
-    background-color: dimgray;
+    background-image: url(./../img/fondo3.jpg);
+    background-size: cover;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,6 +28,7 @@ header{
 }
 nav{
     display: flex;
+    flex-wrap: wrap;
     text-shadow: 1px 1px 1px #000;
    
 }
@@ -48,22 +50,19 @@ main{
     min-height: 75vh;
 }
 h1{
-    height: 15vh;
-    color:white;
+    height: 10vh; 
+    font-family:  Comic Sans MS;
+    font-size: 50px;
+    color:rgb(252, 248, 248);
     display:flex;
     justify-content: center;
     align-items: center;
     background-image: url(./../img/Cinema.jpg );
+    text-shadow: 1px 1px 1px #000;
  
    
 }
-form{
-    display:flex;
-   
-}
-fieldset {
-    display:flex;
-}
+
 .cards-container{
     display: flex;
     justify-content: center;
@@ -77,6 +76,7 @@ fieldset {
     color: black;
     background-color: rgb(229, 229, 236);
     display: flex;
+    box-shadow: 3px 3px 3px #1f1e1f;
 }
 .card img {
     width: 100%;
@@ -113,7 +113,7 @@ fieldset {
       border: 2px solid gray;
       }   
 
-form {
+.contact {
         display: flex;  
         flex-direction: column;
         justify-content: center;
@@ -122,9 +122,9 @@ form {
         gap: 15px;
         
     }
-    /* { } */
 
-    input[type=submit] {
+
+ input[type=submit] {
       
         width:30%;
         background-color: rgb(190, 197, 223);
@@ -136,26 +136,110 @@ form {
         border-radius: 4px;
         cursor: pointer;
     } 
-     
- 
-footer{
-    min-height: 10vh;
-}
-.footer{
-
-    background-color:grey;
+.category{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
+  
+   }
+label{
+    margin:15px;
+   }
+
+fieldset{
+     
+        width: 17em;
+        display: flex;
+        align-items: baseline;
+        flex-wrap: nowrap;
+        margin:15px;
+
+    }
+ .search{
+        display:flex;
+        margin:4px;
+    }
+     
+.container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem;
+ 
+}
+.details-container{
+    width: 49em;
+    height: 19em;
+    color: black;
+    background-color: rgb(210, 210, 211);
+   display: flex;
+   border: 1px solid black;
+}
+.details-container img{
+    width: 25em;
+    height: 100%;
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 3px 3px 3px #1f1e1f;
+}
+.details-container div{
+    border: 1px solid black;
+    box-shadow: 3px 3px 3px #1f1e1f;
+}
+.details-container h2{
+    padding-top: 10px;
+    font-size: 25px;
+    text-align: center;
+    padding: 25px;
+}  
+.details-container p{
+    font-size: 15px;
+    text-align: justify;
+    padding: 10px;
+}
+ 
+footer{
+    min-height: 10vh;
+    width: 100%;
+    background-image: url(./../img/fondo3.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+
+    
+}
+
+.footer  {
+    width: 100%;
+    display: flex;
     align-items: center;
+    padding: 10px;
+    margin: 5px;
+    justify-content: space-around;
 }
-svg{
+ h3{
+   
+ margin-right: 30px;
 
-    margin: 10px;
-}
-
-h3{
-    margin-right: 10px;
+  
+} 
+@media screen and (max-width: 768px){
+    main{
+        flex-direction: column;
+        align-items: center;
+    }
+    nav{
+        flex-direction: column;
+      
+    }
+    footer{
+        padding: 2rem;
+        flex-direction: column;
+    }
 }
 
 
