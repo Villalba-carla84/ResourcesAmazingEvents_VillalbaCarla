@@ -48,7 +48,7 @@ imprimir(events)  */
 
 
 
-let template = (image, name, description, price, _id)=>{ 
+let template = (image, name, description, price, _id) => {
   return `
   <div class="card">
   <img src="${image}" >
@@ -60,38 +60,38 @@ let template = (image, name, description, price, _id)=>{
 </div>
 </div>
     `
-  }
-  
-  function createTemplate(){
+}
+
+function createTemplate() {
   //almacena los events de data
-      let events = data.events
-  
-      //almacena los datos en un array para renderizar las tarjetas
-      let templates = []
-      
-      for (let reunion of events){
+  let events = data.events
+
+  //almacena los datos en un array para renderizar las tarjetas
+  let templates = []
+
+  for (let reunion of events) {
   /*         console.log(reunion)
    */        templates.push(template(reunion.image, reunion.name, reunion.description, reunion.price, reunion._id))
-      }
-  
-    /*   console.log(templates) */
-      let selector = document.getElementById(`cards-container`)
-      selector.innerHTML = templates.join("")
   }
-  
-  createTemplate()
 
- ///check//
- let categories = []
-data.events.forEach(each =>{
-    if(!categories.includes(each.category)){
-        categories.push(each.category)
-    }
+  /*   console.log(templates) */
+  let selector = document.getElementById(`cards-container`)
+  selector.innerHTML = templates.join("")
+}
+
+createTemplate()
+
+///check//
+let categories = []
+data.events.forEach(each => {
+  if (!categories.includes(each.category)) {
+    categories.push(each.category)
+  }
 })
 console.log(categories)
 
-let templateChecks = (category)=>{
-    return`
+let templateChecks = (category) => {
+  return `
     <span>
           <input class="checks" type="checkbox" onclick='captureData("name", "checks", data.events)' name="category" id="${category}" value="${category}"> 
           <label class="label-text" for="${category}">${category}</label>
@@ -100,17 +100,17 @@ let templateChecks = (category)=>{
 }
 
 let printChecks = (id_html, categories) => {
-    let selector = document.querySelector(`#${id_html}`)
-    let templates = categories.map(templateChecks).join('')
-    selector.innerHTML = templates
-    //console.log(templates)
+  let selector = document.querySelector(`#${id_html}`)
+  let templates = categories.map(templateChecks).join('')
+  selector.innerHTML = templates
+  //console.log(templates)
 }
 
 printChecks('checks_container', categories)
- 
- //SELECCIONAR
 
-let templateCard = (data)=>{ 
+//SELECCIONAR
+
+let templateCard = (data) => {
   return `
 
   <div class="card">
@@ -123,9 +123,9 @@ let templateCard = (data)=>{
             </div>
   </div>
     `
-  }
+}
 
-  
+
 let printEvents = (id_html, array_events) => {
   let selector = document.querySelector(`#${id_html}`)
   let templates = array_events.map(templateCard).join('')
@@ -147,30 +147,30 @@ function templateNotFound(id_etiqueta) {
   </div>
 </div>
       `
-    }
+}
 
 
 let captureData = (id_text, id_checks, array_events) => {
   let inputText = document.querySelector(`#${id_text}`).value
-  let inputChecks = Array.from(document.querySelectorAll(`.${id_checks}:checked`)).map(each =>each.value)
+  let inputChecks = Array.from(document.querySelectorAll(`.${id_checks}:checked`)).map(each => each.value)
   console.log(inputText)
-  
-  let eventFiltered = array_events.filter(each =>{
-      return (( 
-          each.name.toLowerCase().includes(inputText.toLowerCase().trim())
-      )&&( 
-          each.length === 0 || inputChecks.includes(each.category)
+
+  let eventFiltered = array_events.filter(each => {
+    return ((
+      each.name.toLowerCase().includes(inputText.toLowerCase().trim())
+    ) && (
+        each.length === 0 || inputChecks.includes(each.category)
       ))
   })
 
-      if (eventFiltered.length>0) {
-        printEvents("cards-container", eventFiltered)
-      } else {
-        templateNotFound('#cards-container')
-      }
-  
+  if (eventFiltered.length > 0) {
+    printEvents("cards-container", eventFiltered)
+  } else {
+    templateNotFound('#cards-container')
+  }
+
 }
 
 
 
-document.querySelector("#name").addEventListener("keyup", ()=> captureData("name", "checks", data.events))
+document.querySelector("#name").addEventListener("keyup", () => captureData("name", "checks", data.events))
