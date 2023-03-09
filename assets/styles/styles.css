@@ -6,7 +6,7 @@
 }
 
 
-header div {
+header{
     width: 100%;
     height: 15vh;
     background-image: url(./../img/fondo3.jpg);
@@ -28,25 +28,26 @@ header div {
 
 }
 
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    text-shadow: 1px 1px 1px #000;
-
+.navbar{
+    background-color: transparent !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
-nav a {
-
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    background-color: #000;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: .5rem;
-    border-radius: .5rem;
-    margin: 10px;
-
+.dropdown-menu{
+    
+    background-color:rgb(17, 15, 133);
+}
+.dropdown-item, .dropdown-toggle{
+    color: beige;
+}
+.categories{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.categ-container{
+    display: flex;
+    justify-content: space-around;
 }
 
 main {
@@ -67,7 +68,8 @@ h1 {
 
 }
 
-.cards-container {
+.c-container{
+  
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -77,16 +79,16 @@ h1 {
 
 .card {
     width: 25%;
-    height: 35%;
-    color: black;
-    background-color: rgb(229, 229, 236);
+    height: 31rem;
+    color: white;
+    background-color: rgb(62, 62, 66);
     display: flex;
     box-shadow: 3px 3px 3px #1f1e1f;
 }
 
 .card img {
     width: 100%;
-    height: 15em;
+    height: 55%;
 
 }
 
@@ -97,14 +99,15 @@ h1 {
 }
 
 .card h2 {
-    padding-top: 10px;
+    padding-top:5px;
     font-size: 25px;
     text-align: center;
 }
 
 .content p {
+    width: 100%;
     font-size: 15px;
-    text-align: justify;
+/*     text-align: justify; */
 
 }
 
@@ -189,7 +192,7 @@ fieldset {
     width: 49em;
     height: 19em;
     color: black;
-    background-color: rgb(210, 210, 211);
+    background-color:rgb(102, 102, 109);
     display: flex;
     border: 1px solid black;
 }
@@ -203,6 +206,8 @@ fieldset {
 }
 
 .details-container div {
+    width: 24em;
+   
     border: 1px solid black;
     box-shadow: 3px 3px 3px #1f1e1f;
 }
@@ -211,15 +216,18 @@ fieldset {
     padding-top: 10px;
     font-size: 25px;
     text-align: center;
-    padding: 25px;
+    padding:5px;
 }
 
 .details-container p {
     font-size: 15px;
     text-align: justify;
-    padding: 10px;
+    padding:1px;
+    margin: 3px 0px 5px 60px;
 }
-
+.details-container  a{
+    margin:10px 5px 0px 30px;
+}
 footer {
     min-height: 10vh;
     width: 100%;
@@ -244,7 +252,7 @@ footer {
 
 h3 {
     color: #fff;
-    font-size: 50px;
+    font-size:20px;
     margin-right: 30px;
 
 
@@ -290,6 +298,11 @@ h3 {
         margin-right: 5px;
         font-size: small;
     }
+    .categ-container{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
 
 
     .cards-container {
@@ -300,13 +313,25 @@ h3 {
         flex-direction: column;
         width: 100%;
     }
+    .card {
+        width: 45%;
+        height: 31rem;
+        color: white;
+        background-color: rgb(62, 62, 66);
+        display: flex;
+        box-shadow: 3px 3px 3px #1f1e1f;
+    }
+    
+ 
 
     .card img {
         height: 80%;
         background-size: cover;
         border-radius: 5px;
     }
-
+ .container{
+    height: 96vh;
+ }
 
     .details-container {
         width: 70%;
@@ -314,11 +339,17 @@ h3 {
         flex-direction: column;
         flex-wrap: nowrap;
     }
+    .details-container div{
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        flex-wrap: nowrap;  
+    }
 
     .details-container img {
         padding: 0%;
         width: 100%;
-        height: 8em;
+        height: 12em;
     }
 
     .details-container h2 {
@@ -327,12 +358,20 @@ h3 {
 
     .details-container p {
         width: 100%;
-        margin: 0%;
+       
+
     }
+   
 
     input[type=submit] {
         width: auto;
         padding: 2px 27px;
+    }
+    .c-img{
+        height: 300px;
+        object-fit: cover;
+        background-size: cover;
+        border-radius:5px;
     }
 
 
@@ -350,19 +389,32 @@ h3 {
         color: rgb(17, 17, 17) !important;
         font-size: 10pt;
     }
-}
 
-@media only screen and (max-width: 480px) {
+
+@media only screen and (min-width: 250px) and (max-width: 480px) {
     #logo {
-        width: 7em;
+        width: 5px;
         padding-top: 25px;
         padding-bottom: 15px;
         padding-left: 1px;
     }
 
     h1 {
-        font-size: 25px;
+        font: size 5px;
 
+    }
+    .dropdown-menu{
+    
+        background-color:rgb(17, 15, 133);
+    }
+    .dropdown-item, .dropdown-toggle{
+        color: beige;
+    }
+
+    #checks_container {
+          display:flex;
+          flex-direction: column;
+          width:20px;
     }
 
     .category {
@@ -372,6 +424,13 @@ h3 {
         align-items: flex-start;
 
     }
+    
+    .categ-container{
+        display: flex;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
 
 
     fieldset {
@@ -397,7 +456,7 @@ h3 {
     }
 
 
-    .cards-container {
+    .c-container{
 
         display: flex;
         align-content: center;
@@ -407,36 +466,48 @@ h3 {
     }
 
     .card {
-        width: 70%;
+        width: 80%;
+        height: 60px;
     }
 
     .card img {
-        height: 80%;
+        height: 100%;
         background-size: cover;
         border-radius: 5px;
     }
-
-    .details-container {
-        width: 70%;
-        height: 50%;
-        flex-direction: column;
-        flex-wrap: nowrap;
-    }
-
-    .details-container img {
-        padding: 0%;
-        width: 100%;
-        height: 8em;
-    }
-
-    .details-container h2 {
-        padding: 5px;
-    }
-
-    .details-container p {
-        width: 100%;
-        margin: 0%;
-    }
+    .container{
+        height: 96vh;
+     }
+    
+        .details-container {
+            width: 70%;
+            height: 50%;
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+        .details-container div{
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            flex-wrap: nowrap;  
+        }
+    
+        .details-container img {
+            padding: 0%;
+            width: 100%;
+            height: 12em;
+        }
+    
+        .details-container h2 {
+            padding: 5px;
+        }
+    
+        .details-container p {
+            width: 100%;
+           
+    
+        }
+   
 
     input[type=submit] {
         width: auto;
@@ -464,8 +535,18 @@ h3 {
         margin-left: 5px;
         margin-right: 5px;
     }
+    .footer {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        margin: 5px;
+        justify-content: center;
+    }
+    
 
     h3 {
-        font-size: 25px;
+        font-size: 15px;
     }
-}

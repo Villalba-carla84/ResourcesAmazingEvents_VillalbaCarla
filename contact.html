@@ -13,21 +13,51 @@
 </head>
 
 <body>
-  <header>
-    <div>
+  <header  class=" d-flex flex-row justify-content-between">
+
       <figure>
         <img src="./assets/img/LogoAmazingEvents.png" alt="logo" id="logo">
       </figure>
 
-      <nav>
-        <a href="./home.html" class="btn btn-outline-info">Home</a>
-        <a href="./pastEvents.html" class="btn btn-outline-info">Past Events</a>
-        <a href="./upcomingEvents.html" class="btn btn-outline-info">Upcoming Events</a>
-        <a href="#" class="btn btn-outline-info">Contact</a>
-        <a href="./details.html" class="btn btn-outline-info">Details</a>
-        <a href="./stats.html" class="btn btn-outline-info">Stats</a>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <button class="d-block d-sm-none navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="navbar Toggle navigation">
+            <span class="icon-nav navbar-toggler-icon"></span>
+          </button>
+          <div class="nav-a collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="btn btn-outline-info" aria-current="page" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-info"aria-current="page" href="#">Upcomings Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-info" href="./pastEvents.html">Past Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-info" href="./contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-info" href="./stats.html">Stats</a>
+              </li>
+            </ul>
+          </div>
+           <!-- DROP BAR -->
+       <div class=" d-block d-sm-block d-md-block d-lg-none nav-a nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Menu
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="./index.html">Home</a></li>
+          <li><a class="dropdown-item" href="./upcomingEvents.html">Upcoming Events</a></li>
+          <li><a class="dropdown-item" href="./pastEvents.html">Past Events</a></li>
+          <li><a class="dropdown-item" href="./contact.html">Contact</a></li>
+          <li><a class="dropdown-item" href="./stats.html">Stats</a></li>
+        </ul>
+      </div>
+        </div>
       </nav>
-    </div>
   </header>
   <main>
     <section class="banner">
@@ -66,7 +96,7 @@
       <span class="social-icon"><a href="#"><img src="./assets/img/whatsapp2.png" alt="whatsapp" width="40" ></a></span>
 </div>
 <div>
-      <h3>cohort</h3>
+      <h3>cohort FE08-TN</h3>
 
     </div>
 

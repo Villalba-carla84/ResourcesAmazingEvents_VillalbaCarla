@@ -13,132 +13,75 @@
 </head>
 
 <body>
-  <header>
-    <div>
+  <header  class=" d-flex flex-row justify-content-between">
+
       <figure>
         <img src="./assets/img/LogoAmazingEvents.png" alt="logo" id="logo">
       </figure>
 
-      <nav>
-        <a href="./index.html" class="btn btn-outline-info">Home</a>
-        <a href="./pastEvents.html" class="btn btn-outline-info">Past Events</a>
-        <a href="#" class="btn btn-outline-info">Upcoming Events</a>
-        <a href="./contact.html" class="btn btn-outline-info">Contact</a>
-        <a href="./stats.html" class="btn btn-outline-info">Stats</a>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <button class="d-block d-sm-none navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="navbar Toggle navigation">
+            <span class="icon-nav navbar-toggler-icon"></span>
+          </button>
+          <div class="nav-a collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="btn btn-outline-info" aria-current="page" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-info"aria-current="page" href="#">Upcomings Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-info" href="./pastEvents.html">Past Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-info" href="./contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-info" href="./stats.html">Stats</a>
+              </li>
+            </ul>
+          </div>
+           <!-- DROP BAR -->
+       <div class=" d-block d-sm-block d-md-block d-lg-none nav-a nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Menu
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="./index.html">Home</a></li>
+          <li><a class="dropdown-item" href="./upcomingEvents.html">Upcoming Events</a></li>
+          <li><a class="dropdown-item" href="./pastEvents.html">Past Events</a></li>
+          <li><a class="dropdown-item" href="./contact.html">Contact</a></li>
+          <li><a class="dropdown-item" href="./stats.html">Stats</a></li>
+        </ul>
+      </div>
+        </div>
       </nav>
-    </div>
   </header>
   <main>
     <section class="banner">
       <h1>Upcoming Events</h1>
     </section>
 
+   <!-- CHECKBOX -->
+   <div class="categories categ-container class_checks" id = "check_bar">
+       <div id="checks_container">
 
-    <form action="./show_data.html " method="get" class="category">
-      <fieldset>
-
-        <label for="category1">Category1</label>
-        <input type="checkbox" name="position" id="category1" value="category1">
-
-        <label for="category2">Category2</label>
-        <input type="checkbox" name="position" id="category2" value="category2">
-
-        <label for="category3">Category3</label>
-        <input type="checkbox" name="position" id="category3" value="category3">
-
-        <label for="category4">category4</label>
-        <input type="checkbox" name="position" id="category4" value="category4">
-      </fieldset>
-
-      <fieldset class="search">
-        <label for="Search"></label>
-        <input type="search" name="search" id="Search">
-
-        <button type="submit">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
-            margin="10" viewBox="0 0 16 16">
-            <path
-              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-          </svg>
-        </button>
-      </fieldset>
-
-    </form>
-
-    <div  id = "cards-container" class="cards-container">
-      <!--  <div class="card">
-         <img src="./assets/img/Cinema.jpg" alt="cinema">
-         <h2>Cinema</h2>
- 
-         <div class="content">
-           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
- 
-           <a href="#" class="btn btn-outline-info">Price: $1000</a>
-           <a href="./details.html" class="btn btn-outline-info">Details</a>
- 
-         </div>
        </div>
- 
-       <div class="card">
-         <img src="./assets/img/Costume_Party.jpg" alt="party">
- 
-         <h2>Costume Party</h2>
-         <div class="content">
-           <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
- 
-           <a href="#" class="btn btn-outline-info">Price: $1000</a>
-           <a href="./details.html" class="btn btn-outline-info">Details</a>
-         </div>
- 
-       </div>
- 
-       <div class="card">
-         <img src="./assets/img/Food_Fair.jpg" alt="food">
- 
-         <h2>Food Fair</h2>
-         <div class="content">
-           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
- 
-           <a href="#" class="btn btn-outline-info">Price: $1000</a>
-           <a href="./details.html" class="btn btn-outline-info">Details</a>
-         </div>
-       </div>
- 
-       <div class="card">
-         <img src="./assets/img/Marathon.jpg" alt="marathon">
- 
-         <h2>Marathon</h2>
-         <div class="content">
-           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-           <a href="#" class="btn btn-outline-info">Price: $1000</a>
-           <a href="./details.html" class="btn btn-outline-info">Details</a>
-         </div>
-       </div>
- 
-       <div class="card">
-         <img src="./assets/img/Museum_Tour.jpg" alt="museum">
- 
-         <h2>Museum Tour</h2>
-         <div class="content">
-           <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-           <a href="#" class="btn btn-outline-info">Price: $1000</a>
-           <a href="./details.html" class="btn btn-outline-info">Details</a>
-         </div>
-       </div>
- 
- 
-       <div class="card">
-         <img src="./assets/img/Music_Concert.jpg" alt="music">
- 
-         <h2>Music Concert</h2>
-         <div class="content">
-           <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
-           <a href="#" class="btn btn-outline-info">Price: $1000</a>
-           <a href="./details.html" class="btn btn-outline-info">Details</a>
-         </div>
-       </div> -->
- 
-     </div>
+
+    <div>  
+      <input type="text" id="name" name="name">
+      <label class="p-text" for="name"><i class="bi bi-search"></i></label>
+    </div>
+             
+</div>
+  
+  <!-- CARDS -->
+  <div class="c-container" id="cards-container">
+     
+  </div>
+
  
    </main>
    <footer>
@@ -152,7 +95,7 @@
        <span class="social-icon"><a href="#"><img src="./assets/img/whatsapp2.png" alt="whatsapp" width="40" ></a></span>
  </div>
  <div>
-       <h3>cohort</h3>
+       <h3>cohort  FE08-TN</h3>
  
      </div>
  
