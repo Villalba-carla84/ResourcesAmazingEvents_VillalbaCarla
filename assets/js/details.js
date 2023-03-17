@@ -1,35 +1,45 @@
-let datos = data.events;
-let query = location.search
-console.log(query)
-let params = new URLSearchParams(query)
-let id_query = params.get(`_id`)
+let url = 'https://mindhub-xj03.onrender.com/api/amazing'
+async function fetchData(urlApi) {
+    try {
+        let response = await fetch(urlApi)
+        let data = await response.json()
+        console.log(data)
+        let dataEvents = data.events
+        console.log(dataEvents)
+        details(dataEvents)
+                                                           
+    } catch (err) {
+        console.log(err)
+    }
+}
+ fetchData(url)
 
-function defineDetail(dato) {
-  return `
+function details(events) {
+    const params = new URLSearchParams(location.search)
+    console.log(params)
+    const id = params.get('_id')
+    console.log(id)
+    let detailEvent = events.find(event => event._id == id)
+    console.log(detailEvent)
+    let cardDetail = document.querySelector('#cards-container')
+    console.log(cardDetail)
+    cardDetail.innerHTML =  `
             <div class="details-container">
-                <img src="${dato.image}" alt="${dato.name}">
+                <img src="${detailEvent.image}" alt="${detailEvent.name}">
            <div>
-             <h2>${dato.name}</h2>
-             <p>Category: ${dato.category}</p>
-             <p>Place: ${dato.place}</p>
-             <p>Capacity: ${dato.capacity}</p>
-             <p>Assistance or stimate: ${dato.estimate || dato.assistance}</p>
-             <a  class="btn btn-outline-info" href="">price: $${dato.price}</a>
+             <h2>${detailEvent.name}</h2>
+             <p>Date: ${detailEvent.date}</p>
+             <p>Category: ${detailEvent.category}</p>
+             <p>Description: ${detailEvent.description}</p>
+             <p>Place: ${detailEvent.place}</p>
+             <p>Capacity: ${detailEvent.capacity}</p>
+             <p>Assistance or stimate: ${detailEvent.estimate ||detailEvent.assistance}</p>
+             <a  class="btn btn-outline-info" href="">price: $${detailEvent.price}</a>
              <a class="btn btn-outline-info" href="javascript:history.back(-1);" role="button">Back</a>
           
            </div>
            </div>
 
             `
+          
 }
-
-
-
-function printDetail(id, dato, array_data) {
-  let container = document.querySelector(id)
-  let dat = array_data.find(each => each._id == dato)
-  let details = defineDetail(dat)
-  container.innerHTML = details
-}
-
-printDetail(`#cards-container`, id_query, datos)

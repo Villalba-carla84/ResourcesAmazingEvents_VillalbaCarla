@@ -32,6 +32,7 @@ header{
     background-color: transparent !important;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-right: 5em;;
 }
 
 .dropdown-menu{
@@ -68,6 +69,8 @@ h1 {
 
 }
 
+
+
 .c-container{
   
     display: flex;
@@ -78,19 +81,27 @@ h1 {
 }
 
 .card {
-    width: 25%;
-    height: 31rem;
+    width: 300px;
+    height: 450px;
     color: white;
     background-color: rgb(62, 62, 66);
     display: flex;
-    box-shadow: 3px 3px 3px #1f1e1f;
+    flex-direction: column;
+    box-shadow: 10px 3px 3px #1f1e1f;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
 }
 
 .card img {
-    width: 100%;
-    height: 55%;
-
+    width: 90%;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 15px;
 }
+
+
 
 .content {
     width: 100%;
@@ -111,10 +122,18 @@ h1 {
 
 }
 
+input[type=search] {
+    width:10em;
+    padding: 2px 27px;
+}
 
 .content a {
     margin: 15px;
     box-shadow: 2px 2px 2px #822694;
+}
+#search{
+   font-size: large;
+   margin-left: 30em;
 }
 
 .table {
@@ -124,6 +143,9 @@ h1 {
 .table-bordered {
 
     border: 2px solid gray;
+}
+thead{
+    background-color: #ebc5eb;
 }
 
 .contact {
@@ -267,10 +289,10 @@ h3 {
 /* RESPONSIVE */
 @media only screen and (min-width: 481px) and (max-width: 992px) {
     #logo {
-        width: 150px;
+        width: 17em;
         padding-top: 25px;
         padding-bottom: 15px;
-        padding-left: 20px;
+        
     }
 
     .category {
@@ -291,20 +313,32 @@ h3 {
     }
 
     .btn-outline-info {
-        padding: 3px;
+        
+        padding: 16px;
         font-weight: bold;
         border-radius: 3px;
         margin-left: 5px;
         margin-right: 5px;
-        font-size: small;
+        font-size: x-large;
+        display:inline-block
     }
     .categ-container{
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
+        font-size: x-large;
+    }
+
+    input[type=search] {
+        font-size: x-large;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin:0px 80px 5px 80px;
     }
 
 
+        
     .cards-container {
 
         display: flex;
@@ -314,8 +348,8 @@ h3 {
         width: 100%;
     }
     .card {
-        width: 45%;
-        height: 31rem;
+        width: 80%;
+        height: 36rem;
         color: white;
         background-color: rgb(62, 62, 66);
         display: flex;
@@ -328,6 +362,12 @@ h3 {
         height: 80%;
         background-size: cover;
         border-radius: 5px;
+    }
+    .content p{
+
+font-size: 20px;
+
+
     }
  .container{
     height: 96vh;
@@ -390,7 +430,7 @@ h3 {
         font-size: 10pt;
     }
 
-
+}
 @media only screen and (min-width: 250px) and (max-width: 480px) {
     #logo {
         width: 5px;
@@ -424,7 +464,7 @@ h3 {
         align-items: flex-start;
 
     }
-    
+  
     .categ-container{
         display: flex;
         flex-direction: column !important;
@@ -434,9 +474,9 @@ h3 {
 
 
     fieldset {
-        width: 16em;
+      
         flex-wrap: wrap;
-        margin: 2px;
+        margin: 1px;
         align-content: flex-start;
 
     }
@@ -454,8 +494,7 @@ h3 {
         padding: 0%;
         margin: 0%;
     }
-
-
+  
     .c-container{
 
         display: flex;
@@ -467,7 +506,7 @@ h3 {
 
     .card {
         width: 80%;
-        height: 60px;
+        height: 30em;
     }
 
     .card img {
@@ -509,7 +548,7 @@ h3 {
         }
    
 
-    input[type=submit] {
+    input[type=search] {
         width: auto;
         padding: 2px 27px;
     }
@@ -550,3 +589,4 @@ h3 {
     h3 {
         font-size: 15px;
     }
+}
