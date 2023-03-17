@@ -1,116 +1,88 @@
-let eventsTable = document.getElementById("eventsTable")
-let upComingEventsTable = document.getElementById("upComingEventsTable")
-let pastEventsTable = document.getElementById("pastEventsTable")
-let url = 'https://mindhub-xj03.onrender.com/api/amazing'
+let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 
-
-
-
+fetchData(urlApi)
 async function fetchData(urlApi) {
     try {
         let response = await fetch(urlApi)
         let data = await response.json()
-        let dataEvents = data.events
-        firstTable(eventsTable, dataEvents)//tabla1
-       console.log(dataEvents)
-        createTableBody(statisticsCategory(pastEvents(dataEvents, data.currentDate)), pastEventsTable)//tabla3
-        createTableBody(statisticsCategory(upComingEvents(dataEvents, data.currentDate)), upComingEventsTable)//tabla2 */
-    } catch (err) {
-        console.log('ocurrio un error')
-        console.log(err)
+        let event = data.events
+        const eventsTable = document.getElementById("eventsTable")
+
+       table1(event,eventsTable)
+
+        const upComingEventsTable = document.getElementById("upComingEventsTable")
+        const pastEventsTable = document.getElementById("pastEventsTable")
+        
+        revenuesForCategory(event.filter(element => element.assistance),upComingEventsTable)
+        revenuesForCategory(event.filter(element => element.estimate),upComingEventsTable)
+
+        table2(event.filter(element => element.estimate),upComingEventsTable)
+        table2(event.filter(element => element.assistance),pastEventsTable)
+
     }
-}
-fetchData(url)
+    catch{
+      (error => console.log(error))}}
 
+function table1(array, contendor) {
 
-
-function percentage(capacity, assistance) {
-    return (parseFloat(assistance) * 100) / parseFloat(capacity)
-}
-function morepercentage(arrayEvents) {
-    let eventName;
-    let max = percentage(parseFloat(arrayEvents[0].capacity), (arrayEvents[0].assistance))
-    arrayEvents.forEach(event => {
-        if (percentage(event.capacity, event.assistance) > max) {
-            max = percentage(event.capacity, event.assistance)
-            eventName = event.name
-        }
+    let moreCapacity = array.reduce((a, b) => {
+        if (a.capacity > b.capacity) return a
+        return b
     })
-    return { name: eventName, percentage: max }
-}
-function lowestpercentage(arrayEvents) {
-    let eventName;
-    let min = percentage(parseFloat(arrayEvents[0].capacity), (arrayEvents[0].assistance))
-    arrayEvents.forEach(event => {
-        if (percentage(event.capacity, event.assistance) < min) {
-            min = percentage(event.capacity, event.assistance)
-            eventName = event.name
-        }
+    console.log(moreCapacity)
+
+    let morepercentage = array.filter(element => element.assistance).reduce((a, b) => {
+        if ((a.assistance / a.capacity) > (b.assistance / b.capacity)) return a
+        return b
     })
-    return { name: eventName, percentage: min }
-}
-function moreCapacity(arrayEvents) { 
-    return arrayEvents.sort((a, b) => b.capacity - a.capacity)[0]
-}
+    console.log(morepercentage)
 
-function firstTable(node, arrayEvents) {
-    let tr = document.createElement('tr')
-    tr.innerHTML = `<td>${morepercentage(arrayEvents).name} : ${morepercentage(arrayEvents).percentage}%</td>
-                    <td>${lowestpercentage(arrayEvents).name} : ${lowestpercentage(arrayEvents).percentage}%</td>
-                    <td>${moreCapacity(arrayEvents).name} : ${moreCapacity(arrayEvents).capacity} people</td>`
-    node.appendChild(tr)
-}
-
-
- function upComingEvents(arrayEvents, date) {
-    return arrayEvents.filter(item => item.date > date)
-}
-function pastEvents(arrayEvents, date) {
-    return arrayEvents.filter(item => item.date < date)
-}
-function statisticsCategory(arrayEvents) {
-    let arrayObjectStatisticsForCategory = []
-    categories(arrayEvents).forEach(category => {
-        let arrayFilteredForCategory = arrayEvents.filter(event => event.category == category)
-        let revenuesForCategory = Math.round(revenues(arrayFilteredForCategory) / arrayFilteredForCategory.length)
-        let percentageEvent = []
-        arrayFilteredForCategory.forEach(event => {
-            percentageEvent.push(Math.round(percentage(event.capacity, event.assistance || event.estimate)))
-        })
-        let percentageCategory = (percentageEvent.reduce((sum, percentage) => sum + percentage, 0) / percentageEvent.length).toFixed(2)
-        let categoryStatistics = {
-            category: category,
-            revenues: revenuesForCategory,
-            percentage: percentageCategory
-        }
-        arrayObjectStatisticsForCategory.push(categoryStatistics)
+    let lowestpercentage = array.filter(element => element.assistance).reduce((a, b) => {
+        if ((a.assistance / a.capacity) < (b.assistance / b.capacity)) return a
+        return b
     })
-    return arrayObjectStatisticsForCategory
-}
-function categories(arrayEvents) {
-    let arrayCategories = []
-    arrayEvents.forEach(event => {
-        if (!arrayCategories.includes(event.category)) {
-            arrayCategories.push(event.category)
-        }
-    })
-    return arrayCategories
+    console.log(lowestpercentage)
+
+    let trContenedor = document.createElement('tr')
+    trContenedor.innerHTML = `
+        <td>${morepercentage.name}: ${morepercentage.assistance/morepercentage.capacity*100}%</td>
+        <td>${lowestpercentage.name}: ${lowestpercentage.assistance/lowestpercentage.capacity*100}%</td>
+        <td>${moreCapacity.name}: ${moreCapacity.capacity}</td>`
+        contendor.appendChild(trContenedor)
 }
 
-    function revenues(arrayEventsCategory) {
-        return arrayEventsCategory.reduce((sum, event) =>  sum+=event.price * (parseFloat(event.assistance) || parseFloat(event.estimate)), 0) 
+function revenuesForCategory (array,nameCategory){
+
+    let arrayFiltrado = array.filter(element => element.category == nameCategory).reduce((total,evento) =>{
+        if(evento.assistance != undefined)
+        return total += evento.price * evento.assistance
+        return total += evento.price * evento.estimate
+    },0)
+    return arrayFiltrado
+}
+
+function table2(array,contenedor){
+
+    let categorias = [... new Set(array.map(element => element.category))]
+
+    let fragmento = document.createDocumentFragment()
+
+    for(let categoria of categorias){
+        let trContenedor = document.createElement('tr')
+        trContenedor.innerHTML = `<td>${categoria}</td>
+        <td>${revenuesForCategory(array,categoria)}</td>
+        <td>${PorcentageOfAttendance(array,categoria)}%</td>`
+        fragmento.appendChild(trContenedor)
     }
+    contenedor.appendChild(fragmento)
 
+}
 
-//tabla
-function createTableBody(arrayObjects, node) {
-    arrayObjects.forEach(element => {
-        let tr = document.createElement('tr')
-        tr.innerHTML = `
-                        <td>${element.category}</td>
-                        <td>$${element.revenues}</td>
-                        <td>${element.percentage}%</td>
-        `
-        node.appendChild(tr)
-    })
-} 
+function PorcentageOfAttendance (array,nameCategory){
+
+    let arrayFiltrado = array.filter(element => element.category == nameCategory).reduce((total,evento) =>{
+        if(evento.assistance != undefined) return total += evento.assistance / evento.capacity 
+        return total += evento.estimate / evento.capacity
+    },0)
+    return (arrayFiltrado * 100 /array.filter(element => element.category == nameCategory).length).toFixed(2)
+}
