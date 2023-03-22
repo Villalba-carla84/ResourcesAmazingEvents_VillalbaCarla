@@ -17,6 +17,9 @@ header{
 
 
 }
+.header{
+    display:flex;
+}
 
 #logo {
     width: 17em;
@@ -27,7 +30,9 @@ header{
 
 
 }
-
+.btn-outline-info {
+    margin:3px;
+}
 .navbar{
     background-color: transparent !important;
     padding-top: 20px;
@@ -42,6 +47,19 @@ header{
 .dropdown-item, .dropdown-toggle{
     color: beige;
 }
+
+
+.contenedorCheck{
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 1.5em;
+    display:flex;
+    flex-wrap: wrap;
+    row-gap: 0.7em;
+    justify-content: center;
+    align-items: center;
+}
+
 .categories{
     padding-top: 20px;
     padding-bottom: 20px;
@@ -145,7 +163,7 @@ input[type=search] {
     border: 2px solid gray;
 }
 thead{
-    background-color: #ebc5eb;
+    background-color: #af9bce;
 }
 
 .contact {
@@ -188,10 +206,8 @@ label {
 
 fieldset {
 
-    width: 17em;
-    display: flex;
+    width: 5em;
     align-items: baseline;
-    flex-wrap: nowrap;
     margin: 15px;
 
 }
@@ -225,6 +241,9 @@ fieldset {
     padding: 20px;
     border: 1px solid black;
     box-shadow: 3px 3px 3px #1f1e1f;
+}
+main {
+    min-height: 100%;
 }
 
 .details-container div {
@@ -428,20 +447,15 @@ input[type=submit] {
     }
 
 }
-@media only screen and (min-width: 250px) and (max-width: 480px) {
+@media only screen and (min-width: 200px) and (max-width: 480px) {
  #logo {
-        width: 100px;
+        width: 90px;
         padding-top: 25px;
         padding-bottom: 15px;
         padding-left: 1px;
     }
-
- h1 {
-        font: size 3px;
-
-    }
-.dropdown-menu{
     
+.dropdown-menu{
         background-color:rgb(17, 15, 133);
     }
 .dropdown-item, .dropdown-toggle{
@@ -469,10 +483,11 @@ input[type=submit] {
     }
 
  #search{
-    font-size: 10px;
+   
     margin-left:2px;
+    width: 8em;
     }
-
+ 
  fieldset {
       
         flex-wrap: wrap;
@@ -480,6 +495,18 @@ input[type=submit] {
         align-content: flex-start;
 
     }
+    
+.contenedorCheck{
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 1.5em;
+    display:flex;
+    flex-wrap: wrap;
+    row-gap: 0.7em;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
  .btn-outline-info {
         padding: 20px;
@@ -488,11 +515,17 @@ input[type=submit] {
         font-size: small;
         margin-left: 2px;
     }
+ .nav-link{
+        font-size: 20px;
+    }
 
- nav a {
+a nav {
 
         padding: 0%;
         margin: 0%;
+    }
+ul .dropdown-menu{
+        width: 10px;
     }
 .c-container{
 
@@ -552,13 +585,17 @@ input[type=submit] {
 
 
  .contact {
-        width: 80%;
+        width: 100%;
         height: 50%;
         padding: 22px;
-        margin: 30px 0 40px 55px;
+        margin: 30px 0 40px 0px;
         gap: 15px;
 
+
     }
+input[type=submit]{
+    width: 100%;
+}
 
 
 .table-bordered {
@@ -586,4 +623,132 @@ input[type=submit] {
  h3 {
         font-size: 15px;
     }
+}
+@media only screen and (max-width: 200px){
+
+
+ header{
+    width: 100%;
+    height: 35vh;
+    background-image: url(./../img/fondo3.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+ #logo {
+    width:40%;
+    margin:none;
+}
+.d_flex{
+    display:flex;
+    flex-direction: column;
+
+    }
+.navbar{
+    margin-right: 15px;
+}
+.btn-outline-info {
+    margin:5px;
+}
+
+.c-container{
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.card {
+    margin-left: 10%;
+    width: 80%;
+    height: 40em;
+}
+
+.card img {
+    height: 100%;
+    background-size: cover;
+    border-radius: 5px;
+}
+h2{
+    width: 90%;
+}
+.contenedorCheck{
+    display:flex;
+    flex-direction: column;
+}
+h1{
+    font-size: 15px;
+}
+.btn-outline-info {
+    margin:3px;
+}
+.navbar{
+    background-color: transparent !important;
+    padding-bottom: 20px;
+    margin-right: 1em;;
+}
+.nav-link{
+    font-size: 13px;
+    padding:none;
+}
+
+.dropdown-menu{
+    
+    background-color:rgb(100, 100, 109);
+}
+.dropdown-item, .dropdown-toggle{
+    color: beige;
+    font-size: small;
+    white-space: none;
+    padding: 0%;
+}
+.dropdown-menu{
+    background-color:rgb(17, 15, 133);
+}
+.dropdown-item, .dropdown-toggle{
+    color: beige;
+}
+
+#checks_container {
+      display:flex;
+      flex-direction: column;
+      width:10px;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+.contact{
+    width: 100%;
+    margin:30px 0 40px 0;
+    height: 50%;
+    padding: 0px;
+}
+input[type=submit] {
+    width: 100%;
+}
+.social-icon {
+
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.footer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+    justify-content: center;
+}
 }

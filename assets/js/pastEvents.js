@@ -32,13 +32,13 @@ function categories(arrayEvents){
     }
 })
 categories.forEach(category => {
-  let fieldset = document.createElement('fieldset')
- fieldset.innerHTML = `
+  let div = document.createElement('div')
+ div.innerHTML = `
 <input class="checks" type="checkbox" name="${category}" id="${category}" value="${category}"> 
 <label class="label-text" for="${category}">${category}</label>`
 
 
-selector.appendChild(fieldset)
+selector.appendChild(div)
 
 })
 }
